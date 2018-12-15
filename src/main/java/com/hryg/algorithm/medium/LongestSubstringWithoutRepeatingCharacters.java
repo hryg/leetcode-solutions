@@ -1,5 +1,7 @@
 package com.hryg.algorithm.medium;
 
+import java.util.HashMap;
+
 /**
  * 无重复字符的最长子串
  *
@@ -29,7 +31,20 @@ public class LongestSubstringWithoutRepeatingCharacters {
      * Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
      */
     private static int lengthOfLongestSubstring(String s) {
-        int maxLength = 0;
+        // 优秀的算法，时间复杂度 O(n)
+        HashMap<Character, Integer> map = new HashMap<>();
+        int max = 0;
+        for (int i = 0, j = 0; i < s.length(); ++i) {
+            if (map.containsKey(s.charAt(i))) {
+                j = Math.max(j, map.get(s.charAt(i)) + 1);
+            }
+            map.put(s.charAt(i), i);
+            max = Math.max(max, i - j + 1);
+        }
+        return max;
+
+        // 自己写的笨算法，复杂度 O(n3)
+        /*int maxLength = 0;
         StringBuilder buffer = new StringBuilder();
         String val;
         for (int i = 0; i < s.length(); i++) {
@@ -49,7 +64,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
                 break;
             }
         }
-        return maxLength;
+        return maxLength;*/
     }
 
     public static void main(String[] args) {
