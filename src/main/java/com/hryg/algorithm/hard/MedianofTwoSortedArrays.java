@@ -6,7 +6,7 @@ package com.hryg.algorithm.hard;
  * @author hryg
  * Created on 2018-12-15
  */
-public class MedianofTwoSortedArrays {
+public class MedianOfTwoSortedArrays {
 
     /**
      * There are two sorted arrays nums1 and nums2 of size m and n respectively.
