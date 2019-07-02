@@ -85,6 +85,8 @@ public class RemoveDuplicatesFromSortedArray {
         return index;
         */
 
+        /// 自己能给到最优的解
+        /*
         Set<Integer> set = new LinkedHashSet<>(nums.length);
         for (int num : nums) {
             set.add(num);
@@ -94,6 +96,14 @@ public class RemoveDuplicatesFromSortedArray {
             nums[index++] = integer;
         }
         return index;
+        */
+
+        /// 评论区的最优解，之所以没有想到这个，又是因为审题不仔细，“排序数组”呀！老哥！
+        int i = nums.length > 0 ? 1 : 0;
+        for (int n : nums)
+            if (n > nums[i-1])
+                nums[i++] = n;
+        return i;
     }
 
     public static void main(String[] args) {
