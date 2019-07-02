@@ -67,7 +67,6 @@ public class RemoveDuplicatesFromSortedArray {
             }
         }
         return bin.size();
-        TreeMap<Integer, Integer> bin = new TreeMap<>();
         */
 
         /// 稍微好一丢丢
